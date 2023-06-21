@@ -1,0 +1,113 @@
+<div class="top-padding">
+  <div class="row">
+    <div class="column">
+      <h2 *ngIf="!showDetails">{{ currencyType }}</h2>
+      <h2 *ngIf="showDetails">{{ currencyInfo }}</h2>
+    </div>
+
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column">
+      <button
+        type="submit"
+        class="btn btn-1"
+        (click)="reset()"
+        *ngIf="showDetails"
+      >
+        Back To Home
+      </button>
+    </div>
+  </div>
+  <!-- <div class="content"> -->
+  <div class="float-container">
+    <div class="float-child">
+      <div class="green">
+        <div class="section1">
+          <fieldset>
+          <form [formGroup]="currencyConvertorForm">
+            <div class="row">
+              <div class="column">
+                <label for="name" class="required">Amount </label>
+                <input
+                  type="number"
+                  formControlName="amount"
+                  class="form-control"
+                />
+              </div>
+              <div class="column">
+                <label for="name"  class="required">From  </label>
+                <select formControlName="from" class="form-control">
+                  <option disabled>Select</option>
+                  <option
+                    *ngFor="let curSrc of currencySource"
+                    [value]="curSrc"
+                  >
+                    {{ curSrc }}
+                  </option>
+                </select>
+              </div>
+              <div class="column">
+                <label for="name"  class="required">To </label>
+                <select
+                  formControlName="to"
+                  class="form-control"
+                  (change)="changeCurrencyEvent()"
+                >
+                  <option disabled>Select</option>
+                  <option *ngFor="let curTo of currencyTarget" [value]="curTo">
+                    {{ curTo }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column"></div>
+              <div class="column" style="width: 50%">
+                <button
+                  style="display: flex"
+                  type="submit"
+                  class="btn btn-1"
+                  (click)="convertCurrency(); showChart = true"
+                  [disabled]="enterAmount()"
+                >
+                  Convert
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="column">
+                <label for="name">Exchange Rate : </label>
+                <input
+                  type="text"
+                  formControlName="fromRate"
+                  class="form-control font-bold"
+                />
+              </div>
+              <div class="column">
+              
+              </div>
+              <div class="column">
+                <label for="name"> Final : </label>
+                <input
+                  type="text"
+                  formControlName="convertedAmount"
+                  class="form-control font-bold"
+                />
+              </div>
+            </div>
+          </form>
+        </fieldset>
+        </div>
+      </div>
+    </div>
+
+    <div class="float-child">
+      <div class="blue">
+        <div class="section2">
+          <app-currency-rates-chart [showChart]="showChart"> </app-currency-rates-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->
+</div>

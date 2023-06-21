@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    // width: 33.33%;
+    width: 25%;
+    padding: 10px;
+    height: auto /* Should be removed. Only for demonstration */
+  }
+
+  column1 {
+    float: right;
+    width: 14%;
+    padding: 10px;
+    /* height: 200px; */
+    display: flex;
+}
+
+
+column-center {
+  float: right;
+  width: 14%;
+  padding: 10px;
+  /* height: 200px; */
+  display: flex;
+}
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .width100{
+    width: 100%;
+  }
+  
+  /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
+
+
+  /* <- Demo Stuff Start */
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 80vw;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+  .btn {
+    flex: 1 1 auto;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+   /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+   }
+
+   .btn-padding5 {
+    flex: 1 1 auto;
+    // margin: 20px;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+   /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+   }
+  
+  /* Demo Stuff End -> */
+  
+  /* <- Magic Stuff Start */
+  
+  .btn:hover {
+    background-position: right center; /* change the direction of the change here */
+  }
+  
+  .btn-1 {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+  }
+  
+  .btn-2 {
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+  }
+  
+  .btn-3 {
+    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+  }
+  
+  .btn-4 {
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+  }
+  
+  .btn-5 {
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+  }
+  
+  /* Magic Stuff End -> */
+
+  .content {
+    display: block;
+    padding: 0 16px;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
+  }
+
+  .form-control{
+    width: 200px;
+    height: 45px;
+    border-radius: 8px;
+  }
+
+  fieldset{
+    border: 1px solid white;
+    border-radius: 10px;
+    // height: 50vh;
+  }
+
+  select {
+    border-color: cadetblue;
+  }
+
+  input{
+    border-width: 1px;
+    border-style: inset;
+    border-image: none;
+    border-color: cadetblue;
+    font-size: 16px;
+  }
+
+  .top-padding{
+    padding-top: 42px;
+  }
+
+  .float-container {
+    border: 0px solid #fff;
+    padding: 20px;
+    height: 80vh;
+    background-color: #49b;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 0px;
+    border: 0px solid red;
+}  
+
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.required:after {
+  content:" *";
+  color: red;
+}
+
+.font-bold{
+  font-weight: bold;
+}
